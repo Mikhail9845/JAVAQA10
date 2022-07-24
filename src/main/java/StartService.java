@@ -22,6 +22,15 @@ public class StartService {
         }
         return maxi;
     }
+    public int minSalesMonth(long[] sales) {
+        int mini = 0;
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] <= sales[mini]) {
+                mini = i;
+            }
+        }
+        return mini;
+    }
 
     public int aboveAverage(long[] sales) {
         int count = 0;
@@ -33,4 +42,15 @@ public class StartService {
         }
         return count;
     }
+    public int belowAverage(long[] sales) {
+        int count = 0;
+        long avg = average(sales);
+        for (long sale : sales) {
+            if (sale < avg) {
+                count++;
+            }
+        }
+        return count;
+    }
+
 }
